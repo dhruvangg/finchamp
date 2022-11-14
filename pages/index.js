@@ -34,7 +34,7 @@ export default function Home() {
         <Title>Welcome to <HighText>Fin</HighText>Champ!</Title>
         <Subtitle>A perfect solution for growing salaried person who has less/no idea about financial terms.</Subtitle>
         <div className={styles.grid}>
-          <Link href="https://nextjs.org/docs" className={styles.card}>
+          <Link href="/taxation" className={styles.card}>
             <h2>Taxation &rarr;</h2>
             <p>Income tax calculation, File IT Return and ways of tax saving.</p>
           </Link>
