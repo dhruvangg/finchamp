@@ -42,7 +42,7 @@ export default function ChartView({ options }) {
         return () => {
             chart.destroy()
         }
-    }, [data])
+    }, [data, type])
 
     return (
         <div>
