@@ -6,7 +6,7 @@ import Head from "next/head";
 import Range from "components/common/Range";
 import ChartView from 'components/common/ChartView';
 import Box from 'components/styled/Box';
-import formatNumber from 'components/helper/FormatNumber';
+import formatNumber from 'components/helper/formatNumber';
 import styled from 'styled-components';
 import RadioButton from 'components/common/RadioButton';
 
