@@ -1,32 +1,9 @@
 import React, { Component } from 'react'
 import Head from "next/head";
-import Layout from "@/components/styled/Layout";
-import Container from '@/components/styled/Container';
-import Range from "@/components/common/Range";
-import ChartView from '@/components/common/ChartView';
-import formatNumber from '@/components/helper/formatNumber';
-import Breadcrumbs from '@/components/common/Breadcrumbs';
-import twStyle from '@/components/helper/twStyle'
-import Page from '@/components/styled/Page';
+import { formatNumber, getFD, twStyle } from '@/components/helper';
+import { Container, Layout, Page } from '@/components/styled';
+import { Breadcrumbs, ChartView, Range, ROITable } from '@/components/common';
 
-const ROITable = ({ invested, maturity, returns }) => {
-    return <table class="shadow-sm rounded-lg border-collapse table-auto w-full text-sm mt-8 border border-slate-100 rounded-lg">
-        <tbody>
-            <tr>
-                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'>Invested Amount</td>
-                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'><strong>{formatNumber(invested)}</strong></td>
-            </tr>
-            <tr>
-                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'>Est. Returns</td>
-                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'><strong>{formatNumber(returns)}</strong></td>
-            </tr>
-            <tr>
-                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'>Total Value</td>
-                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'><strong>{formatNumber(maturity)}</strong></td>
-            </tr>
-        </tbody>
-    </table>
-}
 
 export default class Lumpsum extends Component {
     constructor(props) {
@@ -52,9 +29,7 @@ export default class Lumpsum extends Component {
 
     calculate() {
         const { amount, rate, tenure } = this.state;
-        let maturity, invested;
-        invested = amount
-        maturity = amount + (amount * rate * (tenure / 100))
+        let { maturity, invested } = getFD(amount, rate, tenure)
         this.setState({
             maturity, invested
         })
@@ -120,7 +95,7 @@ export default class Lumpsum extends Component {
                                     <ROITable invested={invested} maturity={maturity} returns={returns} />
                                 </div>
                             </div>
-                            <div className='basis-1/3 pl-8'>
+                            <div className='basis-1/3 md:pl-8 flex justify-center my-8 md:m-0'>
                                 <ChartView options={{ type: 'doughnut', data: chartData }} />
                             </div>
                         </div>

@@ -9,3 +9,8 @@ export const getLumpsum = (amount, rate, tenure) => {
     const maturity = Math.round(amount * Math.pow((1 + (rate / 100)), tenure))
     return { invested: amount, maturity }
 }
+
+export const getFD = (amount, rate, tenure) => {
+    const maturity = amount + (amount * rate * (tenure / 100))
+    return { invested: amount, maturity }
+}
