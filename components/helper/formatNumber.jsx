@@ -1,4 +1,4 @@
-export default function formatNumber(num) {
+export function formatNumber(num) {
     const formatter = new Intl.NumberFormat('en-IN', {
         style: 'currency',
         currency: 'INR',

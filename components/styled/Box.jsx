@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     width: 100%;
     flex-direction: ${props => ["row-responsive", "row"].includes(props.direction) ? 'row' : 'column'};
     flex: ${props => props.flex || 'auto'};
-    padding: ${props => props.pad || 'auto'};
+    padding: ${props => props.pad || '0'};
     justify-content: ${props => props.justify || 'normal'};
     margin: ${props => props.margin || 'auto'};
     align-items: ${props => props.align || 'normal'};

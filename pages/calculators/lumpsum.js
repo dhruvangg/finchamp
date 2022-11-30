@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import Head from "next/head";
-import { Breadcrumbs, RadioButton, ChartView, Range, ROITable } from '@/components/common'
-import { PageTitle, Page, Container, Layout } from '@/components/styled'
 import { formatNumber, getLumpsum, getSIP, twStyle } from '@/components/helper';
+import { Container, Layout, Page } from '@/components/styled';
+import { Breadcrumbs, ChartView, RadioButton, Range, ROITable } from '@/components/common';
 
-export default class SIP extends Component {
+export default class Lumpsum extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            type: 'sip',
-            amount: 10000,
+            type: 'lumpsum',
+            amount: 100000,
             rate: 12,
             tenure: 15,
             maturity: 0,
@@ -21,7 +21,7 @@ export default class SIP extends Component {
     handleChange(e) {
         const { name, value } = e.target
         this.setState({
-            [name]: Number(value)
+            [name]: value
         }, function () {
             this.calculate()
         })
@@ -60,16 +60,16 @@ export default class SIP extends Component {
         return (
             <Layout>
                 <Head>
-                    <title>SIP Calculator- FinChamp</title>
-                    <meta name="description" content="SIP Calculator - Calculate Returns for SIP Investments with FinChamp Online SIP Calculator and make the best plan to achieve your financial goals." />
+                    <title>Lumpsum Calculator - FinChamp</title>
+                    <meta name="description" content="Lumpsum Calculator - Calculate Returns for Lumpsum Investments with FinChamp Online Lumpsum Calculator and make the best plan to achieve your financial goals." />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
-                <Page className='sip'>
+                <Page className='lumpsum'>
                     <Container>
                         <Breadcrumbs />
-                        <PageTitle>SIP Calculator</PageTitle>
-                        <div className='flex flex-col md:flex-row'>
-                            <div className='basis-2/3 md:pr-8'>
+                        <h1 className='text-2xl font-semibold leading-normal mt-2 mb-12 text-primary'>Lumpsum Calculator</h1>
+                        <div className='flex'>
+                            <div className='basis-2/3 pr-8'>
                                 <div className='flex mb-6'>
                                     <RadioButton label="SIP" name="type" value="sip" defaultChecked={this.state.type === 'sip'} onChange={this.handleChange} />
                                     <RadioButton label="Lumpsum" name="type" value="lumpsum" defaultChecked={this.state.type === 'lumpsum'} onChange={this.handleChange} />
@@ -99,7 +99,7 @@ export default class SIP extends Component {
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
                                         <label>Tenure</label>
-                                        <span>{`${tenure} Yr`}</span>
+                                        <span>{`${tenure} %`}</span>
                                     </div>
                                     <Range options={{ name: "tenure", min: 1, max: 30, step: 1, defaultValue: this.state.tenure, handleChange: this.handleChange }} />
                                 </div>

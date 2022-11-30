@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Chart from "chart.js/auto";
 import PropTypes from 'prop-types';
 
-export default function ChartView({ options }) {
+export function ChartView({ options }) {
     const { data, type } = options
     const chartRef = useRef()
 
@@ -16,12 +16,12 @@ export default function ChartView({ options }) {
                 responsive: true,
                 plugins: {
                     legend: {
-                        position: 'top',
+                        position: 'bottom',
                         labels: {
-                            color: '#fffffe',
-                            padding: 30,
+                            color: '#0f0e17',
+                            padding: 50,
                             font: {
-                                size: 18
+                                size: 16
                             }
                         }
                     },
@@ -37,8 +37,9 @@ export default function ChartView({ options }) {
                 }
             }
         })
-        chart.canvas.parentNode.style.height = '500px';
-        chart.canvas.parentNode.style.width = '500px';
+
+        chart.canvas.parentNode.style.height = `400px`;
+        chart.canvas.parentNode.style.width = `400px`;
         return () => {
             chart.destroy()
         }
@@ -58,3 +59,5 @@ ChartView.propTypes = {
         data: PropTypes.object.isRequired,
     })
 }
+
+

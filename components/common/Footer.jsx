@@ -14,7 +14,7 @@ const Label = styled.label`
     justify-content: center;
     align-items: center;`;
 
-export default function Footer() {
+export function Footer() {
     return (
         <FooterWrapper>
             <Label>

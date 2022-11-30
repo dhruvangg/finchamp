@@ -1,14 +1,18 @@
 import '../styles/globals.css'
 
-import { Open_Sans } from '@next/font/google'
+import { Nunito_Sans } from '@next/font/google'
 
-const OpenSans = Open_Sans()
+const nunitoSans = Nunito_Sans({
+  weight: ['400', '600', '700'],
+  style: ['normal'],
+  subsets: ['latin'],
+})
 
 function MyApp({ Component, pageProps }) {
   return <>
     <style jsx global>{`
     * {
-      font-family: ${OpenSans.style.fontFamily};
+      font-family: ${nunitoSans.style.fontFamily};
     }
   `}</style>
     <Component {...pageProps} />

@@ -19,13 +19,13 @@ const LabelEL = styled.label`
     color: var(--primary)
 `
 
-export default function RadioButton(props) {
+export function RadioButton(props) {
     const { label, ...rest } = props
     return (
-        <>
-            <InputEl type="radio" {...rest} id={props.value} />
-            <LabelEL htmlFor={props.value}>{label}</LabelEL>
-        </>
+        <div className='flex mr-4'>
+            <input type="radio" id={props.value} {...rest} className="hidden peer" />
+            <label htmlFor={props.value} className="font-semibold justify-between items-center px-5 py-2 w-full bg-gray-100 rounded-lg cursor-pointer peer-checked:bg-primary peer-checked:text-white">{label}</label>
+        </div>
     )
 }
 

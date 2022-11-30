@@ -1,4 +1,4 @@
-import Layout from "components/common/layout";
+import Layout from "components/styled/Layout";
 import Main from "components/styled/Main";
 import Head from 'next/head'
 import Image from "next/image";

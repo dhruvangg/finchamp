@@ -1,17 +1,40 @@
 import React, { Component } from 'react'
 import Head from "next/head";
-import { Breadcrumbs, RadioButton, ChartView, Range, ROITable } from '@/components/common'
-import { PageTitle, Page, Container, Layout } from '@/components/styled'
-import { formatNumber, getLumpsum, getSIP, twStyle } from '@/components/helper';
+import Layout from "@/components/styled/Layout";
+import Container from '@/components/styled/Container';
+import Range from "@/components/common/Range";
+import ChartView from '@/components/common/ChartView';
+import formatNumber from '@/components/helper/formatNumber';
+import Breadcrumbs from '@/components/common/Breadcrumbs';
+import twStyle from '@/components/helper/twStyle'
+import Page from '@/components/styled/Page';
 
-export default class SIP extends Component {
+const ROITable = ({ invested, maturity, returns }) => {
+    return <table class="shadow-sm rounded-lg border-collapse table-auto w-full text-sm mt-8 border border-slate-100 rounded-lg">
+        <tbody>
+            <tr>
+                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'>Invested Amount</td>
+                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'><strong>{formatNumber(invested)}</strong></td>
+            </tr>
+            <tr>
+                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'>Est. Returns</td>
+                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'><strong>{formatNumber(returns)}</strong></td>
+            </tr>
+            <tr>
+                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'>Total Value</td>
+                <td className='border-b border-slate-100 p-4 pl-8 text-slate-500'><strong>{formatNumber(maturity)}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+export default class EPF extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            type: 'sip',
-            amount: 10000,
-            rate: 12,
-            tenure: 15,
+            amount: 100000,
+            rate: 5,
+            tenure: 5,
             maturity: 0,
             invested: 0
         }
@@ -21,15 +44,17 @@ export default class SIP extends Component {
     handleChange(e) {
         const { name, value } = e.target
         this.setState({
-            [name]: Number(value)
+            [name]: value
         }, function () {
             this.calculate()
         })
     }
 
     calculate() {
-        const { type, amount, rate, tenure } = this.state;
-        let { maturity, invested } = type === 'sip' ? getSIP(amount, rate, tenure) : getLumpsum(amount, rate, tenure)
+        const { amount, rate, tenure } = this.state;
+        let maturity, invested;
+        invested = amount
+        maturity = amount + (amount * rate * (tenure / 100))
         this.setState({
             maturity, invested
         })
@@ -60,34 +85,22 @@ export default class SIP extends Component {
         return (
             <Layout>
                 <Head>
-                    <title>SIP Calculator- FinChamp</title>
-                    <meta name="description" content="SIP Calculator - Calculate Returns for SIP Investments with FinChamp Online SIP Calculator and make the best plan to achieve your financial goals." />
+                    <title>SIP | FinChamp</title>
+                    <meta name="description" content="Financial Awareness platform" />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <Page className='sip'>
                     <Container>
                         <Breadcrumbs />
-                        <PageTitle>SIP Calculator</PageTitle>
-                        <div className='flex flex-col md:flex-row'>
-                            <div className='basis-2/3 md:pr-8'>
-                                <div className='flex mb-6'>
-                                    <RadioButton label="SIP" name="type" value="sip" defaultChecked={this.state.type === 'sip'} onChange={this.handleChange} />
-                                    <RadioButton label="Lumpsum" name="type" value="lumpsum" defaultChecked={this.state.type === 'lumpsum'} onChange={this.handleChange} />
-                                </div>
+                        <h1 className='text-2xl font-semibold leading-normal mt-2 mb-12 text-primary'>SIP Calculator</h1>
+                        <div className='flex'>
+                            <div className='basis-2/3 pr-8'>
                                 <div className='flex flex-col mb-6'>
-                                    {type === 'sip' ? <>
-                                        <div className='flex justify-between mb-4'>
-                                            <label>Monthly Amount</label>
-                                            <span>{formatNumber(amount)}</span>
-                                        </div>
-                                        <Range options={{ name: "amount", min: 500, max: 100000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
-                                    </> : <>
-                                        <div className='flex justify-between mb-4'>
-                                            <label>Total Investment</label>
-                                            <span>{formatNumber(amount)}</span>
-                                        </div>
-                                        <Range options={{ name: "amount", min: 500, max: 1000000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
-                                    </>}
+                                    <div className='flex justify-between mb-4'>
+                                        <label>Amount</label>
+                                        <span>{formatNumber(amount)}</span>
+                                    </div>
+                                    <Range options={{ name: "amount", min: 500, max: 1000000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
                                 </div>
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
@@ -99,7 +112,7 @@ export default class SIP extends Component {
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
                                         <label>Tenure</label>
-                                        <span>{`${tenure} Yr`}</span>
+                                        <span>{`${tenure} Yrs`}</span>
                                     </div>
                                     <Range options={{ name: "tenure", min: 1, max: 30, step: 1, defaultValue: this.state.tenure, handleChange: this.handleChange }} />
                                 </div>
@@ -107,7 +120,7 @@ export default class SIP extends Component {
                                     <ROITable invested={invested} maturity={maturity} returns={returns} />
                                 </div>
                             </div>
-                            <div className='basis-1/3 md:pl-8 flex justify-center my-8 md:m-0'>
+                            <div className='basis-1/3 pl-8'>
                                 <ChartView options={{ type: 'doughnut', data: chartData }} />
                             </div>
                         </div>

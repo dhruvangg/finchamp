@@ -1,42 +1,33 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const style = (vendor = "webkit") => {
+    return `-${vendor}-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 20px;
+    border-radius: 50%;
+    background: #5669FF;
+    cursor: pointer;
+    border: none;`
+}
+
 const Input = styled.input`
-    -webkit-appearance: none;
-    width: 100%;
-    height: 10px;
-    margin: 20px 0;
-    background: var(--primary);
-    outline: none;
-    opacity: 1;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    &:hover {
-        opacity: 1;
+    &::-webkit-slider-thumb{
+        ${style()}
     }
-    &::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background: var(--highlight);
-        cursor: pointer;
+    &::-ms-thumb {
+        ${style('ms')}
     } 
-    &::-moz-range-thumb {
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        background: var(--highlight);
-        cursor: pointer;
+    ::-moz-range-thumb {
+        ${style('moz')}
     }
 `
 
-export default function Range({ options }) {
+export function Range({ options }) {
     const { handleChange, ...rest } = options
-    return (
-        <Input type="range" {...rest} onChange={handleChange} />
-    )
+    return <Input type="range" {...rest} onChange={handleChange} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
+
 }
 
 Range.propTypes = {
@@ -49,3 +40,4 @@ Range.propTypes = {
         handleChange: PropTypes.func.isRequired
     })
 }
+
