@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Container from '../styled/Container';
 
 const convertBreadcrumb = string => {
     return string.replace(/-/g, ' ').replace(/oe/g, 'ö').replace(/ae/g, 'ä').replace(/ue/g, 'ü')
@@ -29,7 +28,7 @@ export const Breadcrumbs = () => {
     }
 
     return (
-        <nav className="py-5 rounded-md w-full" aria-label="Breadcrumb">
+        <nav className="py-5 rounded-md w-full flex justify-center sm:block" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-3">
                 <li className="inline-flex items-center">
                     <Link href="/" className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900">

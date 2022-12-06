@@ -5,7 +5,7 @@ import { Nunito_Sans } from '@next/font/google'
 const nunitoSans = Nunito_Sans({
   weight: ['400', '600', '700'],
   style: ['normal'],
-  subsets: ['latin'],
+  subsets: ['latin']
 })
 
 function MyApp({ Component, pageProps }) {

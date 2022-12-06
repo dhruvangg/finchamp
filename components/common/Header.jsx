@@ -20,8 +20,8 @@ export function Header() {
                 </button>
                 <nav className='hidden md:block'>
                     <ul className='flex'>
-                        <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex p-4 text-gray-700 font-semibold`}>Investment</Link></li>
-                        <li><Link href="/planning" className={`${router.pathname === '/planning' ? 'text-primary' : 'text-gray-700'} flex p-4 text-gray-700 font-semibold`}>Planning</Link></li>
+                        <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Investment</Link></li>
+                        <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Planners</Link></li>
                         <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Calculators</Link></li>
                     </ul>
                 </nav>
@@ -37,8 +37,8 @@ export function Header() {
                         </button>
                     </div>
                     <ul className="flex flex-col">
-                        <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex py-4 text-gray-700 font-semibold`}>Investment</Link></li>
-                        <li><Link href="/planning" className={`${router.pathname === '/planning' ? 'text-primary' : 'text-gray-700'} flex py-4 text-gray-700 font-semibold`}>Planning</Link></li>
+                        <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}>Investment</Link></li>
+                        <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}>Planners</Link></li>
                         <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}>Calculators</Link></li>
                     </ul>
                 </div>

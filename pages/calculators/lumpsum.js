@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Head from "next/head";
 import { formatNumber, getLumpsum, getSIP, twStyle } from '@/components/helper';
-import { Container, Layout, Page } from '@/components/styled';
+import { Container, Layout, Page, PageTitle } from '@/components/styled';
 import { Breadcrumbs, ChartView, RadioButton, Range, ROITable } from '@/components/common';
 
 export default class Lumpsum extends Component {
@@ -21,7 +21,7 @@ export default class Lumpsum extends Component {
     handleChange(e) {
         const { name, value } = e.target
         this.setState({
-            [name]: value
+            [name]: name === 'type' ? value : Number(value)
         }, function () {
             this.calculate()
         })
@@ -46,7 +46,7 @@ export default class Lumpsum extends Component {
         const chartData = {
             labels: [
                 'Invested Amount',
-                'Est. returns',
+                'Est. returns'
             ],
             datasets: [{
                 data: [invested, returns],
@@ -67,9 +67,9 @@ export default class Lumpsum extends Component {
                 <Page className='lumpsum'>
                     <Container>
                         <Breadcrumbs />
-                        <h1 className='text-2xl font-semibold leading-normal mt-2 mb-12 text-primary'>Lumpsum Calculator</h1>
-                        <div className='flex'>
-                            <div className='basis-2/3 pr-8'>
+                        <PageTitle>Lumpsum Calculator</PageTitle>
+                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+                            <div className='col-span-2'>
                                 <div className='flex mb-6'>
                                     <RadioButton label="SIP" name="type" value="sip" defaultChecked={this.state.type === 'sip'} onChange={this.handleChange} />
                                     <RadioButton label="Lumpsum" name="type" value="lumpsum" defaultChecked={this.state.type === 'lumpsum'} onChange={this.handleChange} />
@@ -107,7 +107,7 @@ export default class Lumpsum extends Component {
                                     <ROITable invested={invested} maturity={maturity} returns={returns} />
                                 </div>
                             </div>
-                            <div className='basis-1/3 md:pl-8 flex justify-center my-8 md:m-0'>
+                            <div className='flex justify-center'>
                                 <ChartView options={{ type: 'doughnut', data: chartData }} />
                             </div>
                         </div>

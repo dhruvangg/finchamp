@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Chart from "chart.js/auto";
 import PropTypes from 'prop-types';
 
@@ -29,7 +29,7 @@ export function ChartView({ options }) {
                         display: false,
                         text: ''
                     },
-                    beforeInit: function (chart, options) {
+                    beforeInit: function (chart) {
                         chart.legend.afterFit = function () {
                             this.height = this.height + 100;
                         };
@@ -56,7 +56,7 @@ export function ChartView({ options }) {
 ChartView.propTypes = {
     options: PropTypes.shape({
         type: PropTypes.string.isRequired,
-        data: PropTypes.object.isRequired,
+        data: PropTypes.object.isRequired
     })
 }
 

@@ -16,7 +16,7 @@ const options = {
 export default function Home() {
   const topicsRef = useRef()
   useEffect(() => {
-    var typed = new Typed(topicsRef.current, options);
+    const typed = new Typed(topicsRef.current, options);
     return () => {
       typed.destroy()
     }

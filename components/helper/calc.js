@@ -1,3 +1,5 @@
+/* eslint-disable no-extra-parens */
+
 export const getSIP = (amount, rate, tenure) => {
     const monthlyRate = rate / 12 / 100
     const invested = amount * tenure * 12

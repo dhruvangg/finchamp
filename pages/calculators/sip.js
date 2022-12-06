@@ -21,7 +21,7 @@ export default class SIP extends Component {
     handleChange(e) {
         const { name, value } = e.target
         this.setState({
-            [name]: Number(value)
+            [name]: name === 'type' ? value : Number(value)
         }, function () {
             this.calculate()
         })
@@ -46,7 +46,7 @@ export default class SIP extends Component {
         const chartData = {
             labels: [
                 'Invested Amount',
-                'Est. returns',
+                'Est. returns'
             ],
             datasets: [{
                 data: [invested, returns],
@@ -68,8 +68,8 @@ export default class SIP extends Component {
                     <Container>
                         <Breadcrumbs />
                         <PageTitle>SIP Calculator</PageTitle>
-                        <div className='flex flex-col md:flex-row'>
-                            <div className='basis-2/3 md:pr-8'>
+                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+                            <div className='col-span-2'>
                                 <div className='flex mb-6'>
                                     <RadioButton label="SIP" name="type" value="sip" defaultChecked={this.state.type === 'sip'} onChange={this.handleChange} />
                                     <RadioButton label="Lumpsum" name="type" value="lumpsum" defaultChecked={this.state.type === 'lumpsum'} onChange={this.handleChange} />
@@ -107,7 +107,7 @@ export default class SIP extends Component {
                                     <ROITable invested={invested} maturity={maturity} returns={returns} />
                                 </div>
                             </div>
-                            <div className='basis-1/3 md:pl-8 flex justify-center my-8 md:m-0'>
+                            <div className='flex justify-center'>
                                 <ChartView options={{ type: 'doughnut', data: chartData }} />
                             </div>
                         </div>

@@ -1,3 +1,39 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "camelcase": [
+      "error",
+      {
+        "ignoreImports": true
+      }
+    ],
+    "semi": [
+      "off",
+      "always"
+    ],
+    "semi-spacing": "error",
+    "semi-style": "error",
+    "eqeqeq": "error",
+    "no-multi-spaces": "error",
+    "no-multiple-empty-lines": "error",
+    "no-extra-parens": "error",
+    "comma-spacing": "error",
+    "comma-dangle": "error",
+    "no-useless-constructor": "error",
+    "no-nested-ternary": "error",
+    "no-inline-comments": "error",
+    "no-unused-vars": "error",
+    "no-extra-semi": "error",
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": true,
+        "classes": true
+      }
+    ],
+    "no-console": "error",
+    "no-var": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  }
 }

@@ -24,6 +24,6 @@ export function ROITable({ invested, maturity, returns }) {
 ROITable.propTypes = {
     invested: PropTypes.number.isRequired,
     maturity: PropTypes.number.isRequired,
-    returns: PropTypes.number.isRequired,
+    returns: PropTypes.number.isRequired
 }
 
