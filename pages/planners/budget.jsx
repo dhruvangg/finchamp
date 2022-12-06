@@ -44,7 +44,6 @@ export default class budget extends Component {
     getMonths(start) {
         const { end } = this.state
         const newMonth = dayjs(start).format('MMMM YYYY')
-        console.log(newMonth);
         this.setState(prevState => {
             return {
                 ...prevState,
@@ -147,7 +146,7 @@ export default class budget extends Component {
                                     </tr>
                                     <tr className='border-t'>
                                         <th colSpan={5} className="text-sm font-bold text-gray-900 px-6 py-4">Balance</th>
-                                        <th className="text-sm font-bold text-gray-900 px-6 py-4">{formatNumber(income * months.length - ((expenses + emi + investment + medical) * months.length))}</th>
+                                        <th className="text-sm font-bold text-gray-900 px-6 py-4">{formatNumber(income * months.length - (expenses + emi + investment + medical) * months.length)}</th>
                                     </tr>
                                 </tfoot>
                             </table>
