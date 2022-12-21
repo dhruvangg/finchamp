@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Head from "next/head";
 import { Container, Layout, Page, PageTitle } from 'components/styled';
 import { Breadcrumbs } from 'components/common';
-import { toInr } from 'components/helper';
+import { toInr } from 'lib';
 
 export default class buyACar extends Component {
     constructor(props) {
