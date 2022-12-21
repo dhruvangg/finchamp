@@ -1,5 +1,5 @@
 import { Field } from "formik";
-import { useGetPlannerQuery } from "redux/slices/plannerAPI";
+import { useGetPlannerQuery } from "redux/slices/plannerApi";
 
 export default function Income() {
     const { data, isLoading, error } = useGetPlannerQuery()

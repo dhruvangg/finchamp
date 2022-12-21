@@ -9,7 +9,7 @@ import {
     REGISTER
 } from "redux-persist";
 import storage from 'redux-persist/lib/storage'
-import { plannerApi } from "redux/slices/plannerAPI";
+import { plannerApi } from "redux/slices/plannerApi";
 
 import { rootReducer } from "./rootReducer";
 

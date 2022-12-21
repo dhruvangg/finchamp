@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Head from "next/head";
-import { Container, Layout, Page, PageTitle } from '@/components/styled';
-import { Breadcrumbs } from '@/components/common';
-import { toInr } from '@/components/helper';
+import { Container, Layout, Page, PageTitle } from 'components/styled';
+import { Breadcrumbs } from 'components/common';
+import { toInr } from 'components/helper';
 import dayjs from 'dayjs';
 import ReactToPrint from 'react-to-print';
 

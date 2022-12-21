@@ -1,4 +1,4 @@
-import { Container, Layout, Page } from '@/components/styled';
+import { Container, Layout, Page } from 'components/styled';
 import Head from 'next/head'
 import Image from "next/image";
 import Link from "next/link";

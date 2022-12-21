@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
 import Head from "next/head";
-import { Container, Layout, Page } from '@/components/styled';
-import { Breadcrumbs } from '@/components/common';
+import { Container, Layout, Page } from 'components/styled';
+import { Breadcrumbs } from 'components/common';
 
 export default function Calculators() {
     return (
