@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Typed from 'typed.js';
 import { useEffect, useRef } from 'react'
-import { Container, Layout } from '@/components/styled';
+import { Container, Layout } from 'components/styled';
 
 const options = {
   strings: ['Investment', 'Planning', 'Mutual Fund'],
@@ -38,9 +38,7 @@ export default function Home() {
               <button className='w-48 bg-primary rounded-lg py-2 text-white font-bold mt-4'>Getting Started</button>
             </div>
             <div className='image-container w-full max-w-sm md:max-w-xl mx-auto'>
-              <Image src="/assets/banner.svg" alt="FinChamp" className='image'
-                // height={400} width={400}
-                layout="fill" />
+              <Image src="/assets/banner.svg" alt="FinChamp" className='image' layout="fill" />
             </div>
           </Container>
         </section>

@@ -4,5 +4,4 @@ export * from "./Header";
 export * from "./Footer";
 export * from "./RadioButton";
 export * from "./Range";
-export * from "./ROITable"
 

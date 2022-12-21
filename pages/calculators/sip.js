@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Head from "next/head";
-import { Breadcrumbs, RadioButton, ChartView, Range, ROITable } from '@/components/common'
-import { PageTitle, Page, Container, Layout } from '@/components/styled'
-import { formatNumber, getLumpsum, getSIP, twStyle } from '@/components/helper';
+import { PageTitle, Page, Container, Layout } from 'components/styled'
+import { Breadcrumbs, ChartView, RadioButton, Range } from 'components/common'
+import { toInr, getLumpsum, getSIP, twStyle } from 'lib';
+import ROITable from 'components/ROITable';
 
 export default class SIP extends Component {
     constructor(props) {
@@ -78,13 +79,13 @@ export default class SIP extends Component {
                                     {type === 'sip' ? <>
                                         <div className='flex justify-between mb-4'>
                                             <label>Monthly Amount</label>
-                                            <span>{formatNumber(amount)}</span>
+                                            <span>{toInr(amount)}</span>
                                         </div>
                                         <Range options={{ name: "amount", min: 500, max: 100000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
                                     </> : <>
                                         <div className='flex justify-between mb-4'>
                                             <label>Total Investment</label>
-                                            <span>{formatNumber(amount)}</span>
+                                            <span>{toInr(amount)}</span>
                                         </div>
                                         <Range options={{ name: "amount", min: 500, max: 1000000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
                                     </>}

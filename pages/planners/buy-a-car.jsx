@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Head from "next/head";
 import { Container, Layout, Page, PageTitle } from '@/components/styled';
 import { Breadcrumbs } from '@/components/common';
-import { formatNumber } from '@/components/helper';
+import { toInr } from '@/components/helper';
 
 export default class buyACar extends Component {
     constructor(props) {
@@ -77,19 +77,19 @@ export default class buyACar extends Component {
                                 </tr>
                                 <tr>
                                     <td>Down Payment</td>
-                                    <td>{formatNumber(this.state.dp)}</td>
+                                    <td>{toInr(this.state.dp)}</td>
                                 </tr>
                                 <tr>
                                     <td>Loan Amount</td>
-                                    <td>{formatNumber(this.state.loanAmount)}</td>
+                                    <td>{toInr(this.state.loanAmount)}</td>
                                 </tr>
                                 <tr>
                                     <td>EMI</td>
-                                    <td>{formatNumber(this.state.emi)}</td>
+                                    <td>{toInr(this.state.emi)}</td>
                                 </tr>
                                 <tr>
                                     <td>_10</td>
-                                    <td>{formatNumber(this.state._10)}</td>
+                                    <td>{toInr(this.state._10)}</td>
                                 </tr>
                                 <tr>
                                     <td>Result</td>

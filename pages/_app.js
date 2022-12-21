@@ -1,6 +1,10 @@
 import '../styles/globals.css'
 
 import { Nunito_Sans } from '@next/font/google'
+import { Provider } from 'react-redux'
+import { store } from 'redux/store'
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 
 const nunitoSans = Nunito_Sans({
   weight: ['400', '600', '700'],
@@ -9,13 +13,18 @@ const nunitoSans = Nunito_Sans({
 })
 
 function MyApp({ Component, pageProps }) {
+  let persistor = persistStore(store);
   return <>
     <style jsx global>{`
     * {
       font-family: ${nunitoSans.style.fontFamily};
     }
   `}</style>
-    <Component {...pageProps} />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Component {...pageProps} />
+      </PersistGate>
+    </Provider>
   </>
 }
 

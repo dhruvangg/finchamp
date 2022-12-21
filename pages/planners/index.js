@@ -2,8 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import Head from "next/head";
 import Image from 'next/image';
-import { Container, Layout, Page, PageTitle } from '@/components/styled';
-import { Breadcrumbs } from '@/components/common';
+import { Container, Layout, Page, PageTitle } from 'components/styled';
+import { Breadcrumbs } from 'components/common';
 
 export default function Planners() {
     return (
@@ -18,17 +18,17 @@ export default function Planners() {
                     <Breadcrumbs />
                     <PageTitle>Make a Plan</PageTitle>
                     <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
-                        <Link href="/" className='p-8 border rounded-lg hover:shadow-lg flex flex-col items-center'>
-                            <div className='h-[150px]'>
-                                <Image src="/assets/budget.svg" height={150} width={120} alt="Car" />
-                            </div>
-                            <h5 className='text-primary font-bold'>Monthly budget</h5>
-                        </Link>
                         <Link href="/planners/budget" className='p-8 border rounded-lg hover:shadow-lg flex flex-col items-center'>
                             <div className='h-[150px]'>
                                 <Image src="/assets/budget.svg" height={150} width={120} alt="Car" />
                             </div>
-                            <h5 className='text-primary font-bold'>Annual budget</h5>
+                            <h5 className='text-primary font-bold'>Budget</h5>
+                        </Link>
+                        <Link href="/planners/expence-tracker" className='p-8 border rounded-lg hover:shadow-lg flex flex-col items-center'>
+                            <div className='h-[150px]'>
+                                <Image src="/assets/budget.svg" height={150} width={120} alt="Car" />
+                            </div>
+                            <h5 className='text-primary font-bold'>Expence Tracker</h5>
                         </Link>
                         <Link href="/planners/buy-a-car" className='p-8 border rounded-lg hover:shadow-lg flex flex-col items-center'>
                             <div className='h-[150px]'>

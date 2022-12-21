@@ -16,7 +16,7 @@
     "eqeqeq": "error",
     "no-multi-spaces": "error",
     "no-multiple-empty-lines": "error",
-    "no-extra-parens": "error",
+    // "no-extra-parens": "error",
     "comma-spacing": "error",
     "comma-dangle": "error",
     "no-useless-constructor": "error",

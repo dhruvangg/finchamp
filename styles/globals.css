@@ -5,9 +5,11 @@
 .image-container {
     width: 100%;
 }
-.image-container > div {
+
+.image-container>div {
     position: unset !important;
 }
+
 .image-container .image {
     object-fit: contain;
     width: 100% !important;

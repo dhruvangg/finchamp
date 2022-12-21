@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Lobster_Two } from '@next/font/google'
 import { useRouter } from 'next/router'
-import { Container } from '@/components/styled'
+import { Container } from 'components/styled'
 
 const lobsterTwo = Lobster_Two({ subsets: ['latin'], weight: ['400', '700'] })
 

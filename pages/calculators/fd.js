@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import Head from "next/head";
-import { formatNumber, getFD, twStyle } from '@/components/helper';
-import { Container, Layout, Page, PageTitle } from '@/components/styled';
-import { Breadcrumbs, ChartView, Range, ROITable } from '@/components/common';
+import { Container, Layout, Page, PageTitle } from 'components/styled';
+import { Breadcrumbs, ChartView, Range } from 'components/common';
+import ROITable from 'components/ROITable';
+import { toInr, getFD, twStyle } from 'lib';
 
-
-export default class Lumpsum extends Component {
+export default class FD extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -73,7 +73,7 @@ export default class Lumpsum extends Component {
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
                                         <label>Amount</label>
-                                        <span>{formatNumber(amount)}</span>
+                                        <span>{toInr(amount)}</span>
                                     </div>
                                     <Range options={{ name: "amount", min: 500, max: 1000000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
                                 </div>
