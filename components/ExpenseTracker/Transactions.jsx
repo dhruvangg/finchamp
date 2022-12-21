@@ -35,7 +35,7 @@ export default function Transactions() {
                                     <td className="border-b border-slate-100 text-gray-800 p-2 px-4" colSpan={2}>
                                         <ul>
                                             {transactions.map(transaction => {
-                                                const { type, category, amount } = transaction
+                                                const { type, time, category, amount } = transaction
                                                 return <li className="flex justify-between py-2" key={time}>
                                                     <span>{category}</span>
                                                     <span>{type === "expense" && '- '}{amount}</span>
