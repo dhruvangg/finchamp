@@ -30,11 +30,11 @@ export default function Calculators() {
                             <h5 className='text-primary font-bold mb-4'>FD</h5>
                             <p className='text-center'>Check returns on your fixed deposits (FDs) without any hassle</p>
                         </Link>
-                        <Link href="/calculators/ppf" className='p-6 border rounded-lg flex flex-col items-center hover:shadow-lg'>
+                        <Link href="/calculators/ppf" className='p-6 border rounded-lg flex flex-col items-center hover:shadow-lg disabled'>
                             <h5 className='text-primary font-bold mb-4'>PPF</h5>
                             <p className='text-center'>Calculate your returns on Public Provident Fund (PPF)</p>
                         </Link>
-                        <Link href="/calculators/epf" className='p-6 border rounded-lg flex flex-col items-center mr-0 hover:shadow-lg'>
+                        <Link href="/calculators/epf" className='p-6 border rounded-lg flex flex-col items-center mr-0 hover:shadow-lg disabled'>
                             <h5 className='text-primary font-bold mb-4'>EPF</h5>
                             <p className='text-center'>Calculate returns for your Employee’s Provident Fund (EPF)</p>
                         </Link>

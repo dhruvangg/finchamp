@@ -1,26 +1,26 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const style = (vendor = "webkit") => {
+const style = (props, vendor = "webkit") => {
     return `-${vendor}-appearance: none;
     appearance: none;
     width: 18px;
     height: 20px;
     border-radius: 50%;
-    background: #5669FF;
+    background: ${props.disabled ? "#ccc" : "#5669FF"};
     cursor: pointer;
     border: none;`
 }
 
 const Input = styled.input`
     &::-webkit-slider-thumb{
-        ${style()}
+        ${props => style(props)}
     }
     &::-ms-thumb {
-        ${style('ms')}
+        ${props => style(props, 'ms')}
     } 
     ::-moz-range-thumb {
-        ${style('moz')}
+        ${props => style(props, 'moz')}
     }
 `
 

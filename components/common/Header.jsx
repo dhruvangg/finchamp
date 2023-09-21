@@ -1,18 +1,15 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { Lobster_Two } from '@next/font/google'
 import { useRouter } from 'next/router'
 import { Container } from 'components/styled'
-
-const lobsterTwo = Lobster_Two({ subsets: ['latin'], weight: ['400', '700'] })
 
 export function Header() {
     const [menu, setMenu] = useState(false)
     const router = useRouter();
     return (
         <header className='bg-gray-50 py-4'>
-            <Container className="flex justify-between">
-                <Link href="/" className={`${lobsterTwo.className} text-primary text-5xl drop-shadow-md`}>FinChamp</Link>
+            <Container className="flex justify-between items-center">
+                <Link href="/" className={`font-bold text-primary text-3xl drop-shadow-md uppercase`}>Finchamp</Link>
                 <button className='md:hidden' onClick={() => setMenu(!menu)}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
@@ -20,7 +17,7 @@ export function Header() {
                 </button>
                 <nav className='hidden md:block'>
                     <ul className='flex'>
-                        <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Investment</Link></li>
+                        <li className='disabled'><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Investment</Link></li>
                         <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Planners</Link></li>
                         <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Calculators</Link></li>
                     </ul>

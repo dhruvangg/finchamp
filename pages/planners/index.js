@@ -36,13 +36,13 @@ export default function Planners() {
                             </div>
                             <h5 className='text-primary font-bold'>Buy a Car</h5>
                         </Link>
-                        <Link href="/" className='p-8 border rounded-lg hover:shadow-lg flex flex-col items-center'>
+                        <Link href="/" className='p-8 border rounded-lg hover:shadow-lg flex flex-col items-center disabled'>
                             <div className='h-[150px]'>
                                 <Image src="/assets/iphone.svg" height={150} width={120} alt="iPhone" />
                             </div>
                             <h5 className='text-primary font-bold'>Buy an iPhone</h5>
                         </Link>
-                        <Link href="/" className='p-8 border rounded-lg hover:shadow-lg flex flex-col items-center'>
+                        <Link href="/" className='p-8 border rounded-lg hover:shadow-lg flex flex-col items-center disabled'>
                             <div className='h-[150px]'>
                                 <Image src="/assets/home.svg" height={150} width={120} alt="Home" />
                             </div>

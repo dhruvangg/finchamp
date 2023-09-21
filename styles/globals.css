@@ -16,3 +16,9 @@
     position: relative !important;
     height: unset !important;
 }
+
+.disabled, .disabled > a {
+    filter: blur(2px);
+    user-select: none;
+    pointer-events: none;
+}

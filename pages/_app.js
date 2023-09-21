@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 
-import { Nunito_Sans } from '@next/font/google'
+import { Nunito_Sans } from 'next/font/google'
 import { Provider } from 'react-redux'
 import { store } from 'redux/store'
 import { persistStore } from "redux-persist";

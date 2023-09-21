@@ -10,7 +10,6 @@
     "test": "jest --watch"
   },
   "dependencies": {
-    "@next/font": "^13.0.3",
     "@reduxjs/toolkit": "^1.9.1",
     "chart.js": "^4.0.1",
     "dayjs": "^1.11.7",

@@ -44,21 +44,21 @@ export default function Home() {
         </section>
         <section id='services' className='my-8 md:my-16'>
           <Container className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 xl:gap-8">
-            <Link className='p-8 border rounded-lg hover:shadow-lg' href="#">
+            <Link className='p-8 border rounded-lg hover:shadow-lg disabled' href="#">
               <div className='flex justify-center mb-4 h-[150px]'>
                 <Image src="/assets/savings.svg" alt="Taxation" height={150} width={150} />
               </div>
               <h3 className='text-primary font-bold text-2xl text-center py-4'>Taxation &rarr;</h3>
               <p>Income tax calculation, File IT Return and ways of tax saving.</p>
             </Link>
-            <Link className='p-8 border rounded-lg hover:shadow-lg' href="#">
+            <Link className='p-8 border rounded-lg hover:shadow-lg disabled' href="#">
               <div className='flex justify-center mb-4 h-[150px]'>
                 <Image src="/assets/investments.svg" alt="Investments" height={150} width={150} />
               </div>
               <h3 className='text-primary font-bold text-2xl text-center py-4'>Investments &rarr;</h3>
               <p>Learn about Next.js in an interactive course with quizzes!</p>
             </Link>
-            <Link className='p-8 border rounded-lg hover:shadow-lg' href="#">
+            <Link className='p-8 border rounded-lg hover:shadow-lg disabled' href="#">
               <div className='flex justify-center mb-4 h-[150px]'>
                 <Image src="/assets/insurance.svg" alt="insurance" height={150} width={150} />
               </div>
