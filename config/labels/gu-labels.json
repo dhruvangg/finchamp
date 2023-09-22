@@ -1,0 +1,12 @@
+{
+    "labels.taxation": "કરવેરા",
+    "labels.insurrance": "વીમો",
+    "labels.investment": "રોકાણ",
+    "labels.planners": "આયોજકો",
+    "labels.calculators": "કેલ્ક્યુલેટર",
+    "labels.yearlyInvestment": "વાર્ષિક રોકાણ",
+    "labels.tenure": "કાર્યકાળ",
+    "labels.interestRate": "વ્યાજ દર",
+    "labels.years.one": "{year, plural, one {Yr} other {Yrs}} ",
+    "labels.years.other": "{value} Yrs"
+}

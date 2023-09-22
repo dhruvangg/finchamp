@@ -3,15 +3,16 @@ import Head from "next/head";
 import { Container, Layout, Page, PageTitle } from 'components/styled';
 import { Breadcrumbs, ChartView, Range } from 'components/common';
 import ROITable from 'components/ROITable';
-import { toInr, twStyle, getPPF } from 'lib';
-import { FormattedMessage } from 'react-intl';
+import { twStyle, getSSY } from 'lib';
+import { SSY_RATE } from 'config/constants';
+import { FormattedMessage, FormattedNumber, FormattedPlural } from 'react-intl';
 
 export default class FD extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            amount: 150000,
-            rate: 7.1,
+            amount: 12000,
+            rate: SSY_RATE,
             tenure: 15,
             maturity: 0,
             invested: 0
@@ -29,14 +30,9 @@ export default class FD extends Component {
     }
 
     calculate() {
-        const { amount, rate, tenure } = this.state;
-        
-        const F = getPPF(amount, tenure, rate);
-        console.log({amount, rate, tenure, F});
-        // let { maturity, invested } = getFD(amount, rate, tenure)
-        // this.setState({
-        //     maturity, invested
-        // })
+        const { amount, tenure, rate } = this.state;
+        const F = getSSY(amount, tenure, rate);
+        console.log({ F });
     }
 
     componentDidMount() {
@@ -76,8 +72,8 @@ export default class FD extends Component {
                             <div className='col-span-2'>
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
-                                        <label>Yearly Investment</label>
-                                        <span>{toInr(amount)}</span>
+                                        <label><FormattedMessage id='labels.yearlyInvestment' /></label>
+                                        <span><FormattedNumber value={amount} style="currency" currency="INR" /></span>
                                     </div>
                                     <Range options={{ name: "amount", min: 500, max: 1500000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
                                 </div>
@@ -85,6 +81,13 @@ export default class FD extends Component {
                                     <div className='flex justify-between mb-4'>
                                         <label><FormattedMessage id='labels.tenure' /></label>
                                         <span>{`${tenure} Yrs`}</span>
+                                        {/* <FormattedMessage id='labels.years.one' values={{ year: tenure }} /> */}
+                                        <FormattedPlural
+                                            one="There is 1 banana."
+                                            other="There are {value} bananas."
+                                            value={{value: tenure}}
+                                        />
+                                        {/* <FormattedPlural value={{ value: tenure }} one="{value} Yr" other="{value} Yrs" /> */}
                                     </div>
                                     <Range options={{ name: "tenure", min: 15, max: 50, step: 1, defaultValue: this.state.tenure, handleChange: this.handleChange }} />
                                 </div>

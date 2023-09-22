@@ -7,15 +7,17 @@ import { toInr } from 'lib';
 
 export default class budget extends Component {
     constructor(props) {
+        const currentMonth = new Date().getMonth() + 1;
+        const currentYear = new Date().getFullYear();
         super(props)
         this.state = {
             income: 100000,
-            emi: 8523,
+            emi: 10000,
             investment: 10000,
             medical: 5000,
             expenses: 50000,
-            start: '2022-04',
-            end: '2023-03',
+            start: `${currentMonth > 3 ? currentYear : currentYear - 1}-04`,
+            end: `${currentMonth > 3 ? currentYear + 1 : currentYear}-03`,
             months: []
         }
         this.months = []

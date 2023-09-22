@@ -1,0 +1,1 @@
+export const SSY_RATE = 8

@@ -1,0 +1,12 @@
+{
+    "labels.taxation": "Taxation",
+    "labels.insurrance": "Insurrance",
+    "labels.investment": "Investment",
+    "labels.planners": "Planners",
+    "labels.calculators": "Calculators",
+    "labels.yearlyInvestment": "Yearly Investment",
+    "labels.tenure": "Tenure",
+    "labels.interestRate": "Interest Rate",
+    "labels.years.one": "{year, plural, one {Yr} other {Yrs}} ",
+    "labels.years.other": "{value} Yrs"
+}

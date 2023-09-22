@@ -4,6 +4,7 @@ import { Container, Layout, Page, PageTitle } from 'components/styled';
 import { Breadcrumbs, ChartView, Range } from 'components/common';
 import ROITable from 'components/ROITable';
 import { toInr, getFD, twStyle } from 'lib';
+import { FormattedMessage } from 'react-intl';
 
 export default class FD extends Component {
     constructor(props) {
@@ -79,14 +80,14 @@ export default class FD extends Component {
                                 </div>
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
-                                        <label>Interest Rate</label>
+                                        <label><FormattedMessage id='labels.interestRate' /></label>
                                         <span>{`${rate} %`}</span>
                                     </div>
                                     <Range options={{ name: "rate", min: 1, max: 24, step: 0.1, defaultValue: this.state.rate, handleChange: this.handleChange }} />
                                 </div>
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
-                                        <label>Tenure</label>
+                                        <label><FormattedMessage id='labels.tenure' /></label>
                                         <span>{`${tenure} Yrs`}</span>
                                     </div>
                                     <Range options={{ name: "tenure", min: 1, max: 30, step: 1, defaultValue: this.state.tenure, handleChange: this.handleChange }} />

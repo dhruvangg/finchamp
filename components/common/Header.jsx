@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Container } from 'components/styled'
+import { FormattedMessage } from 'react-intl'
 
 export function Header() {
     const [menu, setMenu] = useState(false)
@@ -34,9 +35,9 @@ export function Header() {
                         </button>
                     </div>
                     <ul className="flex flex-col">
-                        <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}>Investment</Link></li>
-                        <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}>Planners</Link></li>
-                        <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}>Calculators</Link></li>
+                        <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.investment'/></Link></li>
+                        <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.planners'/></Link></li>
+                        <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.calculators'/></Link></li>
                     </ul>
                 </div>
             </aside>

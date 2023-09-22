@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Typed from 'typed.js';
 import { useEffect, useRef } from 'react'
 import { Container, Layout } from 'components/styled';
+import { FormattedMessage } from 'react-intl';
 
 const options = {
   strings: ['Investment', 'Planning', 'Mutual Fund'],
@@ -48,28 +49,28 @@ export default function Home() {
               <div className='flex justify-center mb-4 h-[150px]'>
                 <Image src="/assets/savings.svg" alt="Taxation" height={150} width={150} />
               </div>
-              <h3 className='text-primary font-bold text-2xl text-center py-4'>Taxation &rarr;</h3>
+              <h3 className='text-primary font-bold text-2xl text-center py-4'><FormattedMessage id='labels.taxation'/> &rarr;</h3>
               <p>Income tax calculation, File IT Return and ways of tax saving.</p>
             </Link>
             <Link className='p-8 border rounded-lg hover:shadow-lg disabled' href="#">
               <div className='flex justify-center mb-4 h-[150px]'>
                 <Image src="/assets/investments.svg" alt="Investments" height={150} width={150} />
               </div>
-              <h3 className='text-primary font-bold text-2xl text-center py-4'>Investments &rarr;</h3>
+              <h3 className='text-primary font-bold text-2xl text-center py-4'><FormattedMessage id='labels.investment'/> &rarr;</h3>
               <p>Learn about Next.js in an interactive course with quizzes!</p>
             </Link>
             <Link className='p-8 border rounded-lg hover:shadow-lg disabled' href="#">
               <div className='flex justify-center mb-4 h-[150px]'>
                 <Image src="/assets/insurance.svg" alt="insurance" height={150} width={150} />
               </div>
-              <h3 className='text-primary font-bold text-2xl text-center py-4'>Insurrance &rarr;</h3>
+              <h3 className='text-primary font-bold text-2xl text-center py-4'><FormattedMessage id='labels.insurrance'/> &rarr;</h3>
               <p>Discover and deploy boilerplate example Next.js projects.</p>
             </Link>
             <Link className='p-8 border rounded-lg hover:shadow-lg' href="/calculators">
               <div className='flex justify-center mb-4 h-[150px]'>
                 <Image src="/assets/calculation.svg" alt="calculation" height={150} width={150} />
               </div>
-              <h3 className='text-primary font-bold text-2xl text-center py-4'>Calculators &rarr;</h3>
+              <h3 className='text-primary font-bold text-2xl text-center py-4'><FormattedMessage id='labels.calculators'/> &rarr;</h3>
               <p>
                 Instantly deploy your Next.js site to a public URL with Vercel.
               </p>
