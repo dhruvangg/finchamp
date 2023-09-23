@@ -3,9 +3,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Container } from 'components/styled'
 import { FormattedMessage } from 'react-intl'
+import { useUserContext } from 'components/context/UserContext'
 
 export function Header() {
     const [menu, setMenu] = useState(false)
+    const { setLanguage } = useUserContext()
     const router = useRouter();
     return (
         <header className='bg-gray-50 py-4'>
@@ -18,9 +20,15 @@ export function Header() {
                 </button>
                 <nav className='hidden md:block'>
                     <ul className='flex'>
-                        <li className='disabled'><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Investment</Link></li>
-                        <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Planners</Link></li>
-                        <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}>Calculators</Link></li>
+                        <li className='disabled'><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id='labels.investment' /></Link></li>
+                        <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id='labels.planners' /></Link></li>
+                        <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id='labels.calculators' /></Link></li>
+                        <li>
+                            <select onChange={(e) =>setLanguage(e.target.value)}>
+                                <option value="en">En</option>
+                                <option value="gu">Gu</option>
+                            </select>
+                        </li>
                     </ul>
                 </nav>
             </Container>
@@ -35,9 +43,9 @@ export function Header() {
                         </button>
                     </div>
                     <ul className="flex flex-col">
-                        <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.investment'/></Link></li>
-                        <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.planners'/></Link></li>
-                        <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.calculators'/></Link></li>
+                        <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.investment' /></Link></li>
+                        <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.planners' /></Link></li>
+                        <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.calculators' /></Link></li>
                     </ul>
                 </div>
             </aside>
