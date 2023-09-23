@@ -30,13 +30,7 @@ export default class FD extends Component {
 
     calculate() {
         const { amount, rate, tenure } = this.state;
-        
-        const F = getPPF(amount, tenure, rate);
-        console.log({amount, rate, tenure, F});
-        // let { maturity, invested } = getFD(amount, rate, tenure)
-        // this.setState({
-        //     maturity, invested
-        // })
+        getPPF(amount, tenure, rate);
     }
 
     componentDidMount() {

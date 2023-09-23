@@ -31,8 +31,7 @@ export default class FD extends Component {
 
     calculate() {
         const { amount, tenure, rate } = this.state;
-        const F = getSSY(amount, tenure, rate);
-        console.log({ F });
+        getSSY(amount, tenure, rate);
     }
 
     componentDidMount() {

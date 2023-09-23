@@ -9,10 +9,9 @@ export function Layout({ children }) {
 
     useEffect(() => {
         import(`config/labels/${language}-labels.json`).then(data => {
-            console.log(data)
             setMessages(data)
         }).catch(error => {
-            console.error(error)
+            throw error
         })
     }, [language])
 
