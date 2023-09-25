@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Head from "next/head";
 import { PageTitle, Page, Container, Layout } from 'components/styled'
 import { Breadcrumbs, ChartView, RadioButton, Range } from 'components/common'
-import { toInr, getLumpsum, getSIP, twStyle } from 'lib';
+import { getLumpsum, getSIP, twStyle } from 'lib';
 import ROITable from 'components/ROITable';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 export default class SIP extends Component {
     constructor(props) {
@@ -73,20 +73,20 @@ export default class SIP extends Component {
                         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
                             <div className='col-span-2'>
                                 <div className='flex mb-6'>
-                                    <RadioButton label="SIP" name="type" value="sip" defaultChecked={this.state.type === 'sip'} onChange={this.handleChange} />
-                                    <RadioButton label="Lumpsum" name="type" value="lumpsum" defaultChecked={this.state.type === 'lumpsum'} onChange={this.handleChange} />
+                                    <RadioButton label={<FormattedMessage id='labels.sip' />} name="type" value="sip" defaultChecked={this.state.type === 'sip'} onChange={this.handleChange} />
+                                    <RadioButton label={<FormattedMessage id='labels.lumpsum' />} name="type" value="lumpsum" defaultChecked={this.state.type === 'lumpsum'} onChange={this.handleChange} />
                                 </div>
                                 <div className='flex flex-col mb-6'>
                                     {type === 'sip' ? <>
                                         <div className='flex justify-between mb-4'>
-                                            <label>Monthly Amount</label>
-                                            <span>{toInr(amount)}</span>
+                                            <label><FormattedMessage id='labels.monthlyInvestment' /></label>
+                                            <span><FormattedNumber value={amount} style="currency" currency="INR" /></span>
                                         </div>
                                         <Range options={{ name: "amount", min: 500, max: 100000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
                                     </> : <>
                                         <div className='flex justify-between mb-4'>
-                                            <label>Total Investment</label>
-                                            <span>{toInr(amount)}</span>
+                                            <label><FormattedMessage id='labels.yearlyInvestment' /></label>
+                                            <span><FormattedNumber value={amount} style="currency" currency="INR" /></span>
                                         </div>
                                         <Range options={{ name: "amount", min: 500, max: 1000000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
                                     </>}
@@ -94,7 +94,7 @@ export default class SIP extends Component {
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
                                         <label><FormattedMessage id='labels.interestRate' /></label>
-                                        <span>{`${rate} %`}</span>
+                                        <span><FormattedMessage id='labels.varRate' values={{ value: rate }} /></span>
                                     </div>
                                     <Range options={{ name: "rate", min: 1, max: 24, step: 0.1, defaultValue: this.state.rate, handleChange: this.handleChange }} />
                                 </div>

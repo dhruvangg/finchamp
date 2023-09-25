@@ -1,18 +1,18 @@
 import Head from 'next/head';
 import { Breadcrumbs, ChartView, Range } from 'components/common';
 import { Container, Layout, Page, PageTitle } from 'components/styled';
-import { getHLIntrest, toInr, twStyle } from 'lib';
+import { getHLIntrest, twStyle } from 'lib';
 import React, { Component } from 'react'
-import ROITable from 'components/ROITable';
 import { IOLTable } from 'components/IOLTable';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             amount: 1000000,
-            rate: 7.2,
-            tenure: 10
+            rate: 6.5,
+            tenure: 5
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -47,7 +47,7 @@ export default class Home extends Component {
                 'Intrest Amount'
             ],
             datasets: [{
-                data: [homeLoanData?.principalAmount , homeLoanData?.intrestAmount],
+                data: [homeLoanData?.principalAmount, homeLoanData?.intrestAmount],
                 backgroundColor: [
                     twStyle.theme.colors.gray[100],
                     twStyle.theme.colors.primary
@@ -70,21 +70,21 @@ export default class Home extends Component {
                             <div className='col-span-2'>
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
-                                        <label>Loan Amount</label>
-                                        <span>{toInr(amount)}</span>
+                                        <label><FormattedMessage id='labels.loanAmount'/></label>
+                                        <span><FormattedNumber value={amount} style="currency" currency="INR" /></span>
                                     </div>
                                     <Range options={{ name: "amount", min: 500, max: 5000000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
                                 </div>
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
-                                        <label>Interest Rate (% P.A.)</label>
-                                        <span>{`${rate} %`}</span>
+                                        <label><FormattedMessage id='labels.interestRate' /></label>
+                                        <span><FormattedMessage id='labels.varRate' values={{ value: rate }} /></span>
                                     </div>
                                     <Range options={{ name: "rate", min: 1, max: 24, step: 0.1, defaultValue: this.state.rate, handleChange: this.handleChange }} />
                                 </div>
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
-                                        <label>Tenure (Years)</label>
+                                        <label><FormattedMessage id='labels.tenure'/></label>
                                         <span>{`${tenure} Yrs`}</span>
                                     </div>
                                     <Range options={{ name: "tenure", min: 1, max: 30, step: 1, defaultValue: this.state.tenure, handleChange: this.handleChange }} />

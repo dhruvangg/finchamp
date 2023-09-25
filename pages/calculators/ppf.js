@@ -3,8 +3,8 @@ import Head from "next/head";
 import { Container, Layout, Page, PageTitle } from 'components/styled';
 import { Breadcrumbs, ChartView, Range } from 'components/common';
 import ROITable from 'components/ROITable';
-import { toInr, twStyle, getPPF } from 'lib';
-import { FormattedMessage } from 'react-intl';
+import { twStyle, getPPF } from 'lib';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 export default class FD extends Component {
     constructor(props) {
@@ -71,7 +71,7 @@ export default class FD extends Component {
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
                                         <label>Yearly Investment</label>
-                                        <span>{toInr(amount)}</span>
+                                        <span><FormattedNumber value={amount} style="currency" currency="INR" /></span>
                                     </div>
                                     <Range options={{ name: "amount", min: 500, max: 1500000, step: 500, defaultValue: this.state.amount, handleChange: this.handleChange }} />
                                 </div>
@@ -85,7 +85,7 @@ export default class FD extends Component {
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
                                         <label><FormattedMessage id='labels.interestRate' /></label>
-                                        <span>{`${rate} %`}</span>
+                                        <span><FormattedMessage id='labels.varRate' values={{ value: rate }} /></span>
                                     </div>
                                     <Range options={{ disabled: true, name: "rate", min: 1, max: 24, step: 0.1, defaultValue: this.state.rate, handleChange: this.handleChange }} />
                                 </div>

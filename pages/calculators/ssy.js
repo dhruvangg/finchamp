@@ -93,7 +93,7 @@ export default class FD extends Component {
                                 <div className='flex flex-col mb-6'>
                                     <div className='flex justify-between mb-4'>
                                         <label><FormattedMessage id='labels.interestRate' /></label>
-                                        <span>{`${rate} %`}</span>
+                                        <span><FormattedMessage id='labels.varRate' values={{ value: rate }} /></span>
                                     </div>
                                     <Range options={{ disabled: true, name: "rate", min: 1, max: 24, step: 0.1, defaultValue: this.state.rate, handleChange: this.handleChange }} />
                                 </div>

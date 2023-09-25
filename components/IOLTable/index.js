@@ -28,5 +28,5 @@ export const IOLTable = ({homeLoanData}) => {
 }
 
 IOLTable.protoTypes = {
-    homeLoanData: PropTypes.object.isRequired,
+    homeLoanData: PropTypes.object.isRequired
 }
