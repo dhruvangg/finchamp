@@ -38,6 +38,10 @@ export default function Calculators() {
                             <h5 className='text-primary font-bold mb-4'>EPF</h5>
                             <p className='text-center'>Calculate returns for your Employee’s Provident Fund (EPF)</p>
                         </Link>
+                        <Link href="/calculators/home" className='p-6 border rounded-lg flex flex-col items-center mr-0 hover:shadow-lg'>
+                            <h5 className='text-primary font-bold mb-4'>Home</h5>
+                            <p className='text-center'>Calculate returns for your Home Loan</p>
+                        </Link>
                     </Container>
                 </section>
             </Page>
