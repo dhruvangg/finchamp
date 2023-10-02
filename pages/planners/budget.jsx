@@ -4,6 +4,7 @@ import { Container, Layout, Page, PageTitle } from 'components/styled';
 import { Breadcrumbs } from 'components/common';
 import dayjs from 'dayjs';
 import { toInr } from 'lib';
+import { FormattedMessage } from 'react-intl';
 
 export default class budget extends Component {
     constructor(props) {
@@ -75,33 +76,33 @@ export default class budget extends Component {
                         <div ref={this.tableRef} className="print:p-4">
                             <div className="grid grid-cols-5 gap-8 mb-8">
                                 <div className='flex flex-col'>
-                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="income">Income (Monthly)</label>
+                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="income"><FormattedMessage id='labels.income_monthly'/></label>
                                     <input type="number" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="income" step="100" defaultValue={this.state.income} onChange={this.handleChange} />
                                 </div>
                                 <div className='flex flex-col'>
-                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="emi">Expenses</label>
+                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="emi"><FormattedMessage id='labels.expences'/></label>
                                     <input type="number" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="expenses" step="100" defaultValue={this.state.expenses} onChange={this.handleChange} />
                                 </div>
                                 <div className='flex flex-col'>
-                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="emi">EMI</label>
+                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="emi"><FormattedMessage id='labels.emi'/></label>
                                     <input type="number" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="emi" step="100" defaultValue={this.state.emi} onChange={this.handleChange} />
                                 </div>
                                 <div className='flex flex-col'>
-                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="emi">Investment</label>
+                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="emi"><FormattedMessage id='labels.investment'/></label>
                                     <input type="number" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="investment" step="100" defaultValue={this.state.investment} onChange={this.handleChange} />
                                 </div>
                                 <div className='flex flex-col'>
-                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="emi">Medical</label>
+                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="emi"><FormattedMessage id='labels.medical'/></label>
                                     <input type="number" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="medical" step="100" defaultValue={this.state.medical} onChange={this.handleChange} />
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-8 mb-8">
                                 <div className='flex flex-col'>
-                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="start_month">Start Month</label>
+                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="start_month"><FormattedMessage id='labels.startMonth'/></label>
                                     <input type="month" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="start" defaultValue={this.state.start} onChange={this.handleChange} />
                                 </div>
                                 <div className='flex flex-col'>
-                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="end_month">End Month</label>
+                                    <label className="form-label inline-block mb-2 text-gray-700" htmlFor="end_month"><FormattedMessage id='labels.endMonth'/></label>
                                     <input type="month" className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" name="end" defaultValue={this.state.end} onChange={this.handleChange} />
                                 </div>
                             </div>
@@ -109,11 +110,11 @@ export default class budget extends Component {
                                 <thead>
                                     <tr>
                                         <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center">Month</th>
-                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center">Income</th>
-                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center">Expenses</th>
-                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center">EMI</th>
-                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center">Investment</th>
-                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center">Medical</th>
+                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center"><FormattedMessage id='labels.income_monthly'/></th>
+                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center"><FormattedMessage id='labels.expences'/></th>
+                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center"><FormattedMessage id='labels.emi'/></th>
+                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center"><FormattedMessage id='labels.investment'/></th>
+                                        <th className="text-sm font-bold text-gray-900 px-6 py-4 text-center"><FormattedMessage id='labels.medical'/></th>
                                     </tr>
                                 </thead>
                                 <tbody className="border">

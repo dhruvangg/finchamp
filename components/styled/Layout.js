@@ -1,22 +1,15 @@
 import { IntlProvider } from 'react-intl'
 import { Header, Footer } from "components/common";
-import { useUserContext } from "components/context/UserContext";
-import { useEffect, useState } from 'react';
+import en from 'config/content/en'
+import gu from 'config/content/gu'
+import { useRouter } from 'next/router';
 
 export function Layout({ children }) {
-    const { language } = useUserContext();
-    const [messages, setMessages] = useState()
-
-    useEffect(() => {
-        import(`config/labels/${language}-labels.json`).then(data => {
-            setMessages(data)
-        }).catch(error => {
-            throw error
-        })
-    }, [language])
+    const { locale } = useRouter()
+    const messages = locale === 'en' ? en : gu
 
     return (
-        <IntlProvider messages={messages} locale="en" defaultLocale="en">
+        <IntlProvider messages={messages} locale={locale} defaultLocale="en">
             <div className="body-wrapper">
                 <Header />
                 {children}
