@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.page{
+    overflow-x: hidden;
+}
+
 .image-container {
     width: 100%;
 }
@@ -17,8 +21,23 @@
     height: unset !important;
 }
 
-.disabled, .disabled > a {
+.disabled,
+.disabled>a {
     filter: blur(2px);
     user-select: none;
     pointer-events: none;
+}
+
+
+.slick-track {
+    display: flex !important;
+    padding: 80px 0;
+}
+
+.slick-slide {
+    height: inherit !important;
+}
+
+.slick-slide > div {
+    height: 100%;
 }

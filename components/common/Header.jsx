@@ -5,6 +5,20 @@ import { Container } from 'components/styled'
 import { FormattedMessage } from 'react-intl'
 import { LANGUAGES } from 'config/constants'
 
+const navigations = [{
+    url: '/investment',
+    label: 'labels.investment',
+    ariaLabel: 'Investment'
+}, {
+    url: '/planners',
+    label: 'labels.planners',
+    ariaLabel: 'Planners',
+}, {
+    url: '/calculators',
+    label: 'labels.calculators',
+    ariaLabel: 'Calculators'
+}]
+
 export function Header() {
     const [menu, setMenu] = useState(false)
     const router = useRouter();
@@ -14,28 +28,26 @@ export function Header() {
     }
 
     return (
-        <header className='bg-gray-50 py-4'>
+        <header className='bg-gray-50 py-4' aria-label='header'>
             <Container className="flex justify-between items-center">
-                <Link href="/" className={`font-bold text-primary text-3xl drop-shadow-md uppercase`}>Finchamp</Link>
+                <Link href="/" className={`font-bold text-primary text-3xl drop-shadow-md uppercase`} aria-label='FinChamp'>Finchamp</Link>
                 <button className='md:hidden' onClick={() => setMenu(!menu)}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                     </svg>
                 </button>
-                <nav className='hidden md:block'>
-                    <ul className='flex'>
-                        <li className='disabled'><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id='labels.investment' /></Link></li>
-                        <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id='labels.planners' /></Link></li>
-                        <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id='labels.calculators' /></Link></li>
-                        <li className='flex p-4'>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-                            </svg>
-                            <select className='text-gray-700 flex pl-2 font-semibold appearance-none focus:outline-none' onChange={switchLanguage} defaultValue={router.locale}>
-                                {LANGUAGES.map(el => <option key={el.value} value={el.value} >{el.label}</option>)}
-                            </select>
-                        </li>
-                    </ul>
+                <nav className='hidden md:flex' role="navigation" aria-label="nav">
+                    {navigations && <ul className='flex' aria-hidden>
+                        {navigations.map(el => <li key={el.url}><Link href={el.url} role='listitem' aria-label={el.ariaLabel} className={`${router.pathname === el.url ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id={el.label} /></Link></li>)}
+                    </ul>} 
+                    <div className='flex p-4'>
+                        <svg aria-hidden xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                        </svg>
+                        <select aria-describedby="language-picker" className='text-gray-700 flex pl-2 font-semibold appearance-none focus:outline-none' onChange={switchLanguage} defaultValue={router.locale}>
+                            {LANGUAGES.map(el => <option key={el.value} value={el.value} >{el.label}</option>)}
+                        </select>
+                    </div>
                 </nav>
             </Container>
             <aside className={`w-96 fixed md:hidden top-0 right-0 bg-white min-h-screen shadow-2xl p-8 transition-all duration-300 overflow-auto z-10 h-screen ${menu ? 'translate-x-0' : 'translate-x-full'}`}>

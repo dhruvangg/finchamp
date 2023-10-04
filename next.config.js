@@ -22,6 +22,9 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV !== 'development',
     styledComponents: true,
   },
+  images: {
+    domains: ['picsum.photos']
+  }
   // pwa: {
   //   dest: "public",
   //   register: true,

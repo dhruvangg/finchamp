@@ -1,3 +1,3 @@
 export default async function handler(req, res) {
-    res.status(200).json([{ "home": "/api/pages/home" }])
+    res.status(200).json([{ "home": "/api/pages/home" }, { "invsetment": "/api/pages/investment" }])
 }

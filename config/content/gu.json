@@ -21,8 +21,6 @@
     "labels.loanAmount": "લોનની રકમ",
     "labels.tenure": "મુદત",
     "labels.interestRate": "વ્યાજ દર",
-    "labels.bannerSubTitle": "પગારદાર વ્યક્તિ માટે એક સંપૂર્ણ ઉકેલ કે જેને નાણાકીય વિગતો વિશે ઓછો/કોઈ ખ્યાલ નથી.",
-    "labels.gettingStarted": "શરૂ કરો",
     "labels.years.one": "{year, plural, one {Yr} other {Yrs}} ",
     "labels.years.other": "{value} વર્ષ"
 }
