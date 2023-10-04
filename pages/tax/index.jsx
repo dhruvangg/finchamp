@@ -1,9 +1,5 @@
 import { Container, Layout } from 'components/styled';
 import Head from 'next/head'
-import Image from "next/image";
-import Link from "next/link";
-import { FormattedMessage } from 'react-intl';
-
 
 export default function Taxation() {
     return (

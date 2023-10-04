@@ -10,7 +10,7 @@ export default function Title({ children }) {
     useEffect(() => {
         gsap.fromTo(titleRef.current, {
             opacity: 0,
-            y: -200,
+            y: -200
         }, {
             opacity: 1,
             y: 0,
@@ -19,7 +19,7 @@ export default function Title({ children }) {
         });
 
         gsap.fromTo(lineRef.current, {
-            width: 0,
+            width: 0
         }, {
             width: '100%',
             ease: "Power2.easeOut",

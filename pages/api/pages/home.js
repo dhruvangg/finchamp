@@ -28,7 +28,7 @@ const en = {
         title: "Calculators",
         subtitle: "Income tax calculation, File IT Return and ways of tax saving.",
         url: "/calculators"
-    },]
+    }]
 }
 const gu = {
     title: "FinChamp",
@@ -60,7 +60,7 @@ const gu = {
         title: "કેલ્ક્યુલેટર",
         subtitle: "Income tax calculation, File IT Return and ways of tax saving.",
         url: "/calculators"
-    },]
+    }]
 }
 
 export default async function handler(req, res) {

@@ -21,7 +21,7 @@ export default function Home({ data }) {
     return () => {
       typed.destroy()
     }
-  }, [])
+  }, [banner.title.options])
 
   return (
     <Layout>

@@ -11,23 +11,14 @@ import gsap from "gsap"
 const playFair = Playfair_Display({
     weight: ['800'],
     subsets: ['latin'],
-    display: 'swap',
+    display: 'swap'
 })
-
-const PrevArrow = () => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-16 h-16">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
-
-const NextArrow = () => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-16 h-16">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
-
 
 export default function Investment({ data }) {
     const sliderRef = useRef()
     useEffect(() => {
         gsap.fromTo(sliderRef.current, {
-            x: 1000,
+            x: 1000
         }, {
             x: 0,
             ease: "Power2.easeOut",
@@ -41,11 +32,8 @@ export default function Investment({ data }) {
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
-        // autoplay: true,
         autoplaySpeed: 5000,
-        cssEase: "linear",
-        // prevArrow: <PrevArrow />,
-        // nextArrow: <NextArrow />,
+        cssEase: "linear"
     };
     return (
         <Layout>
@@ -58,7 +46,7 @@ export default function Investment({ data }) {
                 <Container>
                     <Title>Investment</Title>
                 </Container>
-                <div  ref={sliderRef}>
+                <div ref={sliderRef}>
                     {types.length > 0 && <Slider className="my-8" {...settings}>
                         {types.map(type => {
                             return <div key={type.title} className="flex p-2 h-full">

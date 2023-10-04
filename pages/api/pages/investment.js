@@ -10,7 +10,7 @@ const en = {
         cons: ['Market risk', 'Fees']
     }, {
         title: 'Stock Market',
-        pros: ['High returns potential','Liquidity', 'Dividends'],
+        pros: ['High returns potential', 'Liquidity', 'Dividends'],
         cons: ['High risk', 'Lack of expertise']
     }, {
         title: 'Real Estate',
@@ -46,7 +46,7 @@ const gu = {
         cons: ['Market risk', 'Fees']
     }, {
         title: 'Stock Market',
-        pros: ['High returns potential','Liquidity', 'Dividends'],
+        pros: ['High returns potential', 'Liquidity', 'Dividends'],
         cons: ['High risk', 'Lack of expertise']
     }, {
         title: 'Real Estate',
@@ -127,7 +127,6 @@ export default async function handler(req, res) {
 // Maintenance and taxes: Ongoing expenses for maintenance and property taxes.
 
 
-
 // 5. Gold:
 
 // Pros:
@@ -163,8 +162,6 @@ export default async function handler(req, res) {
 
 // Interest rate risk: Bond prices may fall if interest rates rise.
 // Credit risk: Corporate bonds carry the risk of issuer default.
-
-
 
 
 // 8. Systematic Investment Plan (SIP):

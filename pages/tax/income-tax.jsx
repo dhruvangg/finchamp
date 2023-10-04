@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Container, Layout } from 'components/styled';
 import Head from 'next/head'
 

@@ -12,7 +12,7 @@ const navigations = [{
 }, {
     url: '/planners',
     label: 'labels.planners',
-    ariaLabel: 'Planners',
+    ariaLabel: 'Planners'
 }, {
     url: '/calculators',
     label: 'labels.calculators',
