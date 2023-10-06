@@ -1,1 +1,1 @@
-export const server = process.env.NODE_ENV !== 'production' ? 'http://localhost:3000' : 'https://your_deployment.server.com';
+export const server = process.env.NODE_ENV !== 'production' ? 'http://localhost:3000' : 'https://finchamp.vercel.app/';
