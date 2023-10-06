@@ -70,7 +70,7 @@ export default function Investment({ data }) {
     )
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
     const res = await fetch(`${server}/api/pages/investment?locale=${locale}`);
     const data = await res.json();
     return {

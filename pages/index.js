@@ -64,18 +64,7 @@ export default function Home({ data }) {
   )
 }
 
-// export const getStaticPaths = ({ locales }) => {
-//   return {
-//     paths: [
-//       // if no `locale` is provided only the defaultLocale will be generated
-//       { params: { slug: 'post-1' }, locale: 'en-US' },
-//       { params: { slug: 'post-1' }, locale: 'fr' },
-//     ],
-//     fallback: true,
-//   }
-// }
-
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const res = await fetch(`${server}/api/pages/home?locale=${locale}`);
   const data = await res.json();
   return {
