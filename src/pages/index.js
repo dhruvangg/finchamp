@@ -65,7 +65,7 @@ export default function Home({ data }) {
   )
 }
 
-Home.PropTypes = {
+Home.propTypes = {
   data: PropTypes.shape({
     title: PropTypes.string.isRequired,
     services: PropTypes.object.isRequired,
