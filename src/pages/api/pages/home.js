@@ -16,17 +16,17 @@ const en = {
     services: [{
         img: "/assets/investments.svg",
         title: "Investment",
-        subtitle: "Income tax calculation, File IT Return and ways of tax saving.",
+        subtitle: "Understand different kinds of investments and their benefits and drawbacks. Determine which type of investment is most suited to achieving your goal of earning a decent return.",
         url: "/investment"
     }, {
         img: "/assets/insurance.svg",
         title: "Insurance",
-        subtitle: "Income tax calculation, File IT Return and ways of tax saving.",
+        subtitle: "Learn what factors should be considered when purchasing insurance among the numerous alternatives available.",
         url: "/insurance"
     }, {
         img: "/assets/calculation.svg",
         title: "Calculators",
-        subtitle: "Income tax calculation, File IT Return and ways of tax saving.",
+        subtitle: "Various calculators help you in calculating expected returns for various investment options and planning your investment appropriately.",
         url: "/calculators"
     }]
 }
@@ -48,17 +48,17 @@ const gu = {
     services: [{
         img: "/assets/investments.svg",
         title: "ઇન્વેસ્ટમેન્ટ",
-        subtitle: "Income tax calculation, File IT Return and ways of tax saving.",
+        subtitle: "વિવિધ પ્રકારના રોકાણ અને તેના ફાયદા અને ખામીઓ સમજો. યોગ્ય વળતર મેળવવાના તમારા ધ્યેયને હાંસલ કરવા માટે કયા પ્રકારનું રોકાણ સૌથી વધુ યોગ્ય છે તે નક્કી કરો.",
         url: "/investment"
     }, {
         img: "/assets/insurance.svg",
         title: "ઇન્સ્યોરન્સ",
-        subtitle: "Income tax calculation, File IT Return and ways of tax saving.",
+        subtitle: "ઉપલબ્ધ અસંખ્ય વિકલ્પોમાંથી વીમો ખરીદતી વખતે કયા પરિબળો ધ્યાનમાં લેવા જોઈએ તે જાણો.",
         url: "/insurance"
     }, {
         img: "/assets/calculation.svg",
         title: "કેલ્ક્યુલેટર",
-        subtitle: "Income tax calculation, File IT Return and ways of tax saving.",
+        subtitle: "વિવિધ કેલ્ક્યુલેટર તમને વિવિધ રોકાણ વિકલ્પો માટે અપેક્ષિત વળતરની ગણતરી કરવામાં અને તમારા રોકાણનું યોગ્ય આયોજન કરવામાં મદદ કરે છે.",
         url: "/calculators"
     }]
 }
@@ -71,10 +71,3 @@ export default async function handler(req, res) {
     }
     res.status(200).json(option[locale || 'en'])
 }
-
-// {
-//     img: "/assets/savings.svg",
-//     title: "taxation",
-//     subtitle: "Income tax calculation, File IT Return and ways of tax saving.",
-//     url: "/taxation"
-// }
