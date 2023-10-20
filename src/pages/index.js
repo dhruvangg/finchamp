@@ -54,7 +54,7 @@ export default function Home({ data, allPostsData }) {
                   <Image src={img} alt={title} height={150} width={150} />
                 </div>
                 <h3 className='text-primary font-bold text-2xl text-center py-4'>{title} &rarr;</h3>
-                <p>{subtitle}</p>
+                <p className='text-center font-semibold text-gray-600'>{subtitle}</p>
               </Link>
             })}
           </Container>}

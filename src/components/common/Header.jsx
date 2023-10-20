@@ -78,6 +78,11 @@ export default function Header() {
           {navigations && <ul className='flex flex-col' aria-hidden>
             {navigations.map(el => <li key={el.url}><Link href={el.url} role='listitem' aria-label={el.ariaLabel} className={`${router.pathname === el.url ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id={el.label} /></Link></li>)}
           </ul>}
+          <div className='flex p-4'>
+            <select aria-describedby="language-picker" className='text-gray-700 flex font-semibold appearance-none focus:outline-none' onChange={switchLanguage} defaultValue={router.locale}>
+              {LANGUAGES.map(el => <option key={el.value} value={el.value} >{el.label}</option>)}
+            </select>
+          </div>
         </div>
       </aside>
     </header>
