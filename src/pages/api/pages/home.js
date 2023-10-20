@@ -10,7 +10,7 @@ const en = {
         CTA: {
             label: 'Getting Started',
             type: 'url',
-            url: '#'
+            url: '/contact'
         }
     },
     services: [{

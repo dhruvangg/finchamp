@@ -2,34 +2,42 @@ const en = {
     title: "Investment | FinChamp",
     types: [{
         title: 'Fixed Deposits',
+        excerpt: 'Fixed Deposits (FDs) in India offer a secure, fixed interest rate for a chosen tenure, with options for premature withdrawal and various interest payout frequencies. They are insured up to Rs. 5 lakhs per bank by the DICGC, and some banks provide higher interest rates to senior citizens.',
         pros: ['Low risk', 'Guaranteed returns', 'Liquidity'],
         cons: ['Lower returns', 'Taxation']
     }, {
         title: 'Mutual Funds',
+        excerpt: 'Mutual funds in India are investment vehicles that pool money from multiple investors to invest in a diversified portfolio of assets. They offer diversification, professional management, and various fund types to suit different risk profiles and financial goals, making them a popular choice for investors seeking long-term wealth creation.',
         pros: ['Professional management', 'Diversification', 'Liquidity'],
         cons: ['Market risk', 'Fees']
     }, {
         title: 'Stock Market',
+        excerpt: 'The stock market is a platform where shares of publicly traded companies are bought and sold, offering investors the potential for capital appreciation through the purchase of stocks.',
         pros: ['High returns potential', 'Liquidity', 'Dividends'],
         cons: ['High risk', 'Lack of expertise']
     }, {
         title: 'Real Estate',
+        excerpt: 'Real estate investment involves purchasing properties like homes, commercial spaces, or land, with the aim of capital appreciation and rental income, offering stability and long-term growth potential.',
         pros: ['Tangible asset', 'Rental income', 'Potential for appreciation'],
         cons: ['Illiquid', 'High initial cost', 'Maintenance and taxes']
     }, {
         title: 'Gold',
+        excerpt: 'Gold serves as a traditional safe-haven asset and a hedge against inflation, offering stability during economic uncertainties and a means of preserving wealth.',
         pros: ['Safe haven', 'Liquidity', 'Jewelry and ornamental value'],
         cons: ['Lack of income', 'Storage and security']
     }, {
         title: 'Public Provident Fund',
+        excerpt: 'PPF is a government-backed savings scheme in India, providing tax benefits and a fixed interest rate, catering to long-term financial goals and retirement planning.',
         pros: ['Tax benefits', 'Long-term savings', 'Government-backed'],
         cons: ['Lock-in period', 'Lower returns']
     }, {
         title: 'Bonds and Debentures',
+        excerpt: 'Bonds and debentures are fixed-income securities where investors lend money to entities in exchange for periodic interest payments and the return of the principal amount upon maturity.',
         pros: ['Fixed income', 'Relatively lower risk', 'Diversification'],
         cons: ['Interest rate risk', 'Credit risk']
     }, {
         title: 'Systematic Investment Plan',
+        excerpt: 'SIP is a disciplined way to invest in mutual funds, allowing investors to contribute regular, smaller amounts over time, benefiting from rupee-cost averaging and the power of compounding for long-term wealth accumulation.',
         pros: ['Affordable', 'Rupee cost averaging', 'Disciplined savings'],
         cons: ['Market risk', 'Long-term commitment']
     }]

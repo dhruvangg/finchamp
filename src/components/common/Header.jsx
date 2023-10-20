@@ -3,19 +3,27 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FormattedMessage } from 'react-intl'
 import { LANGUAGES } from '@/config/constants'
-import { Playfair_Display } from 'next/font/google'
+import { Grandstander, Expletus_Sans } from 'next/font/google'
 import Container from './Container'
 
-const playFair = Playfair_Display({
-  weight: ['800'],
+const comfortaa = Expletus_Sans({
+  weight: ['700', '500'],
   subsets: ['latin'],
   display: 'swap'
 })
 
 const navigations = [{
+  url: '/blog',
+  label: 'labels.blog',
+  ariaLabel: 'Blog'
+}, {
   url: '/investment',
   label: 'labels.investment',
   ariaLabel: 'Investment'
+}, {
+  url: '/insurance',
+  label: 'labels.insurance',
+  ariaLabel: 'Insurance'
 }, {
   url: '/planners',
   label: 'labels.planners',
@@ -37,13 +45,13 @@ export default function Header() {
   return (
     <header className='bg-gray-50 py-4' aria-label='header'>
       <Container className="flex justify-between items-center">
-        <Link href="/" className={`font-bold text-primary text-3xl drop-shadow-md uppercase ${playFair.className}`} aria-label='FinChamp'>Finchamp</Link>
-        <button className='md:hidden' onClick={() => setMenu(!menu)}>
+        <Link href="/" className={`font-bold text-primary text-4xl ${comfortaa.className}`} aria-label='FinChamp'>Finchamp</Link>
+        <button className='lg:hidden' onClick={() => setMenu(!menu)}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
           </svg>
         </button>
-        <nav className='hidden md:flex' role="navigation" aria-label="nav">
+        <nav className='hidden lg:flex' role="navigation" aria-label="nav">
           {navigations && <ul className='flex' aria-hidden>
             {navigations.map(el => <li key={el.url}><Link href={el.url} role='listitem' aria-label={el.ariaLabel} className={`${router.pathname === el.url ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id={el.label} /></Link></li>)}
           </ul>}
@@ -57,7 +65,7 @@ export default function Header() {
           </div>
         </nav>
       </Container>
-      <aside className={`w-96 fixed md:hidden top-0 right-0 bg-white min-h-screen shadow-2xl p-8 transition-all duration-300 overflow-auto z-10 h-screen ${menu ? 'translate-x-0' : 'translate-x-full'}`}>
+      <aside className={`w-96 fixed lg:hidden top-0 right-0 bg-white min-h-screen shadow-2xl p-8 transition-all duration-300 overflow-auto z-10 h-screen ${menu ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex flex-col justify-between">
           <div className="flex justify-between border-b pb-4">
             <h3 className="font-bold">FinChamp</h3>
@@ -67,11 +75,9 @@ export default function Header() {
               </svg>
             </button>
           </div>
-          <ul className="flex flex-col">
-            <li><Link href="/investment" className={`${router.pathname === '/investment' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.investment' /></Link></li>
-            <li><Link href="/planners" className={`${router.pathname === '/planners' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.planners' /></Link></li>
-            <li><Link href="/calculators" className={`${router.pathname === '/calculators' ? 'text-primary' : 'text-gray-700'} flex py-4 font-semibold`}><FormattedMessage id='labels.calculators' /></Link></li>
-          </ul>
+          {navigations && <ul className='flex flex-col' aria-hidden>
+            {navigations.map(el => <li key={el.url}><Link href={el.url} role='listitem' aria-label={el.ariaLabel} className={`${router.pathname === el.url ? 'text-primary' : 'text-gray-700'} flex p-4 font-semibold`}><FormattedMessage id={el.label} /></Link></li>)}
+          </ul>}
         </div>
       </aside>
     </header>
